@@ -1,8 +1,8 @@
 # ChitChat- A Django Chat Application
-[![ChitChat](https://img.shields.io/badge/ChitChat-v1.0.0-pink?labelColor=black&style=flat&link=http://chitprivatechatapp.herokuapp.com/)](http://chitprivatechatapp.herokuapp.com/)
+[![ChitChat](https://img.shields.io/badge/ChitChat-v1.0.0-pink?labelColor=black&style=flat&link=https://chitprivatechatapp.herokuapp.com/)](http://chitprivatechatapp.herokuapp.com/)
 [![Discuss](https://img.shields.io/badge/Discuss-Community-orange?style=flat&link=https://github.com/krishna-vasudev/ChitChat/discussions)](https://github.com/krishna-vasudev/ChitChat/discussions)
 [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-green?style=flat&link=https://github.com/krishna-vasudev/ChitChat/blob/master/LICENSE)](https://github.com/krishna-vasudev/ChitChat/blob/master/LICENSE)
-[![website](https://img.shields.io/badge/website-up-red?style=flat&link=http://chitprivatechatapp.herokuapp.com/)](http://chitprivatechatapp.herokuapp.com/)
+[![website](https://img.shields.io/badge/website-up-red?style=flat&link=https://chitprivatechatapp.herokuapp.com/)](http://chitprivatechatapp.herokuapp.com/)
 <p align="center">
   <img width="370" height="140" src="mediafiles/logo1.png">
 </p>
@@ -55,7 +55,7 @@ I had faced some difficulties while developing this application. I will brief ab
 </p>
 
 The chat application is deployed in heroku platform. This is the link to the deployed application <b>:</b>
- [http://chitprivatechatapp.herokuapp.com/](http://chitprivatechatapp.herokuapp.com/)
+ [https://chitprivatechatapp.herokuapp.com/](http://chitprivatechatapp.herokuapp.com/)
 
 I have also maade a detailed demo video for this webapp.
 Check that out here <b>:</b>[https://youtu.be/-sf4CbjQKmk](https://youtu.be/-sf4CbjQKmk)
@@ -87,7 +87,7 @@ Check that out here <b>:</b>[https://youtu.be/-sf4CbjQKmk](https://youtu.be/-sf4
 * [Python](https://www.python.org/doc/)
 * [Bootstrap](https://getbootstrap.com/)
 ## Prerequisites(Optional)
-As this is web application you can use it by simply visiting this link<b>:</b>[http://chitprivatechatapp.herokuapp.com/](http://chitprivatechatapp.herokuapp.com/).<br><br>
+As this is web application you can use it by simply visiting this link<b>:</b>[https://chitprivatechatapp.herokuapp.com/](http://chitprivatechatapp.herokuapp.com/).<br><br>
  But as a developer you might be interested to work on it or see it running in your local system. For that 
  you must have python installed in your system and all evironments settings done properly. Don't know how to install it ,see [this](https://www.youtube.com/watch?v=MoeQlmeJnPg) tutorial video for reference.
 ## Installation and Setup(Optional)
