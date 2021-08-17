@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .container1 {
+      border: 2px solid #dedede;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .darker {
+      border-color: #ccc;
+      background-color: #ddd;
+    }
+
+    .greener {
+      border-color: #98fb98;
+      background-color: #98ff98;
+    }
+
+    .container1::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .container1 img {
+      float: left;
+      max-width: 60px;
+      width: 100%;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+
+    .container1 img.right {
+      float: right;
+      margin-left: 20px;
+      margin-right: 0;
+    }
+
+    .time-right {
+      float: right;
+      color: #aaa;
+    }
+
+    .time-left {
+      float: left;
+      color: #999;
+    }
+
+    .sticky {
+      position: -webkit-sticky;
+      /* Safari */
+      position: sticky;
+      top: 0;
+      padding: 1px;
+      text-align: center;
+      margin-bottom: 10px;
+      background-color: rgb(189, 45, 158);
+      color: white;
+    }
+
+    div {
+      word-break: break-all;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="sticky">
+    <h2>{{friend}} - ChitChat</h2>
+  </div>
+
+  <div id="display">
+
+    <!-- <div class="container darker">
+  <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
+  <span class="time-left">20th, April 2021</span>
+</div> -->
+
+  </div>
+
+  <script>
+    $(document).ready(function () {
+
+      setInterval(function () {
+        $.ajax({
+          type: 'GET',
+          url: "/getmessages/{{friend}}",
+          success: function (response) {
+            console.log(response);
+            $("#display").empty();
+            for (var key in response.messages) {
+              if (response.messages[key].sender == '{{request.user}}') {
+                if (response.messages[key].file_status) {
+                  var temp = "<div class='container1 greener'><b>" + response.messages[key].sender + "</b><p><a href=\"" + response.messages[key].message + "\" download>" + response.messages[key].file_name + "</a></p><span class='time-left'>" + response.messages[key].date + "</span></div>";
+                  $("#display").append(temp);
+                }
+                else {
+                  var temp = "<div class='container1 greener'><b>" + response.messages[key].sender + "</b><p>" + response.messages[key].message + "</p><span class='time-left'>" + response.messages[key].date + "</span></div>";
+                  $("#display").append(temp);
+                }
+              }
+              else {
+                if (response.messages[key].file_status) {
+                  var temp = "<div class='container1 darker'><b>" + response.messages[key].sender + "</b><p><a href=\"" + response.messages[key].message + "\" download>" + response.messages[key].file_name + "</a></p><span class='time-left'>" + response.messages[key].date + "</span></div>";
+                  $("#display").append(temp);
+                }
+                else {
+                  var temp = "<div class='container1 darker'><b>" + response.messages[key].sender + "</b><p>" + response.messages[key].message + "</p><span class='time-left'>" + response.messages[key].date + "</span></div>";
+                  $("#display").append(temp);
+                }
+              }
+            }
+          },
+          error: function (response) {
+            alert('An error occured')
+          }
+        });
+      }, 1000);
+    })
+  </script>
+
+
+  <div class="container1">
+    <style>
+      input[type=text],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+
+      div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      label {
+        background-color: indigo;
+        color: white;
+        padding: 0.5rem;
+        font-family: sans-serif;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      #file-chosen {
+        margin-left: 0.3rem;
+        font-family: sans-serif;
+      }
+
+      .disabled {
+        background-color: #45a049 !important;
+      }
+    </style>
+
+    <form id="post-form" autocomplete="off">
+      {% csrf_token %}
+      <input type="hidden" name="username" id="username" value="{{request.user}}" />
+      <input type="hidden" name="friend" id="friend" value="{{friend}}" />
+      <input type="text" name="message" id="message" width="100px" autocomplete="off" />
+      <input type="submit" value="Send">
+    </form>
+    <form method="post" id="form" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="file">Choose File</label>
+      <span id="file-chosen">No file chosen</span>
+      <input type="file" name="file" id="file" hidden />
+      <input type="submit" value="Upload" id="upload-btn" />
+    </form>
+  </div>
+
+  <div class="my-4 container1" align="center">
+    <button type="button" class="btn btn-info"><a href="/" style="text-decoration:none; color:white;">Home</a></button>
+
+    <button type="button" class="btn btn-warning"><a href="/friends"
+        style="text-decoration:none; color:black;">Friends</a></button>
+  </div>
+
+
+</body>
+
+<script type="text/javascript">
+
+  const actualBtn = document.getElementById('file');
+
+  const fileChosen = document.getElementById('file-chosen');
+
+  actualBtn.addEventListener('change', function () {
+    fileChosen.textContent = this.files[0].name
+  })
+
+
+  $(document).ready(function () {
+    $(document).on('submit', '#post-form', function (e) {
+      e.preventDefault();
+
+      $.ajax({
+        type: 'POST',
+        url: '/send',
+        data: {
+          username: $('#username').val(),
+          friend: $('#friend').val(),
+          message: $('#message').val(),
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success: function (data) {
+          //alert(data)
+        },
+        error: function (data) {
+          // there was an error.
+          alert("An error occured!");  
+        }
+      });
+      document.getElementById('message').value = '';
+    });
+  })
+
+  $(document).ready(function () {
+    $(document).on('submit', '#form', function (e) {
+      e.preventDefault();
+      var formData = new FormData($('#form')[0]);
+      if(document.getElementById('file').files.length!=0){
+      document.getElementById('file-chosen').textContent = "Sending...";
+      document.getElementById('upload-btn').disabled = true;
+      document.getElementById('upload-btn').classList.add('disabled');
+      }
+      $.ajax({
+        type: 'POST',
+        url: '/uploadfiles/{{friend}}',
+        processData: false,
+        contentType: false,
+        data: formData,
+        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        success: function (data) {
+          // The file was uploaded successfully... 
+          document.getElementById('file-chosen').textContent = "No file chosen";
+          document.getElementById('upload-btn').disabled = false;
+          document.getElementById('upload-btn').classList.remove('disabled'); 
+          //alert(data);
+        },
+        error: function (data) {
+          // there was an error.
+          document.getElementById('file-chosen').textContent = "No file chosen";
+          document.getElementById('upload-btn').disabled = false;
+          document.getElementById('upload-btn').classList.remove('disabled');  
+          alert("An error occured!");  
+        }
+      });
+      document.getElementById('file').value = "";
+      //document.getElementById('file-chosen').textContent = "No file chosen";
+    });
+  })
+</script>
+
+</html>

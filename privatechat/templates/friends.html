@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .container1 {
+            border: 2px solid #dedede;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .darker {
+            border-color: #ccc;
+            background-color: #ddd;
+        }
+
+        .container1::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .container1 img {
+            float: left;
+            max-width: 60px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        .container1 img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+        .time-right {
+            float: right;
+            color: #aaa;
+        }
+
+        .time-left {
+            float: left;
+            color: #999;
+        }
+
+        div {
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div align="center">
+        <h2>Welcome {{request.user}} to ChitChat</h2>
+    </div>
+
+
+    <div class="container1">
+        <style>
+            input[type=text],
+            select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            div {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                max-width: 500px;
+            }
+        </style>
+
+        <form id="post-form" method="POST" action="friends" autocomplete="off">
+            {% csrf_token %}
+            <label>Friend's Username</label>
+            <input type="text" name="friendusername" id="friendusername" width="100px" autocomplete="off">
+            <label>Friend's Nickname</label>
+            <input type="text" name="friendnickname" id="friendnickname" width="100px" autocomplete="off">
+            <input type="submit" value="Add Friend">
+        </form>
+    </div>
+
+    <div class="my-4 container1" align="center">
+        <button type="button" class="btn btn-info btn-sm"><a href="/"
+                style="text-decoration:none; color:white;">Home</a></button>
+
+        <button type="button" class="btn btn-warning"><a href="/friends"
+                style="text-decoration:none; color:black;">Friends</a></button>
+
+        <button type="button" class="btn btn-danger btn-sm"><a href="/accounts/logout"
+                style="text-decoration:none; color:white;">logout</a></button>
+    </div>
+
+    <div class="my-4 container1 " align="center">
+        <h2>All Friends</h2>
+    </div>
+
+    <div class="my-4 container1 " align="center">
+        <table class="table table-warning table-striped">
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+
+            {% for user_friend in user_friends %}
+            <tr>
+                <th>{{user_friend.nickname}}<br>({{user_friend.friend}})</th>
+                <th>
+                    <form id="post-form" method="POST" action="checkview">
+                        {% csrf_token %}
+                        <input type="text" name="friendusername" id="friendusername" width="100px" hidden
+                            value="{{user_friend.friend}}">
+                        <button type="submit" class="btn btn-success btn-sm">Let's Chat</button>
+                    </form>
+                    <br>
+                    <form id="post-form" method="POST" action="removefriend">
+                        {% csrf_token %}
+                        <input type="text" name="friendusername" id="friendusername" width="100px" hidden
+                            value="{{user_friend.friend}}">
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                </th>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+</body>
+
+
+</html>
