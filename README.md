@@ -1,5 +1,8 @@
 # ChitChat- A Django Chat Application
-
+[![ChitChat](https://img.shields.io/badge/ChitChat-v1.0.0-pink?labelColor=black&style=flat&link=http://chitprivatechatapp.herokuapp.com/)](http://chitprivatechatapp.herokuapp.com/)
+[![Discuss](https://img.shields.io/badge/Discuss-Community-orange?style=flat&link=https://github.com/krishna-vasudev/ChitChat/discussions)](https://github.com/krishna-vasudev/ChitChat/discussions)
+[![LICENSE](https://img.shields.io/badge/LICENSE-MIT-green?style=flat&link=https://github.com/krishna-vasudev/ChitChat/blob/master/LICENSE)](https://github.com/krishna-vasudev/ChitChat/blob/master/LICENSE)
+[![website](https://img.shields.io/badge/website-up-red?style=flat&link=http://chitprivatechatapp.herokuapp.com/)](http://chitprivatechatapp.herokuapp.com/)
 <p align="center">
   <img width="370" height="140" src="mediafiles/logo1.png">
 </p>
