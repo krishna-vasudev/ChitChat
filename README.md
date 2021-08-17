@@ -7,20 +7,20 @@
 This is a Django chat application powered by Ajax, Jquery, Django Google Drive Storage that provides main features you'd expect from a chat, such as emoji message support, private chat, admin system, add friend, file sharing etc.
 
 ## Table of Contents
-* [Introduction](#)
-* [Screenshots](#)
-* [Demo and link to deployed chat application](#)
-* [Features](#)
-  * [Current features](#)
-  * [Features to add](#)
-  * [Feature request](#)
-* [Technologies and tools used](#)
-* [Prerequisites(Optional)](#)
-* [Installation and Setup(Optional)](#)
-* [Running in the local server(Optional)](#)
-* [Deploying the app to heroku(Optional)](#)
-* [Bug Reporting](#)
-* [License](#)
+* [Introduction](https://github.com/krishna-vasudev/ChitChat#introduction)
+* [Screenshots](https://github.com/krishna-vasudev/ChitChat#screenshots)
+* [Demo and link to deployed chat application](https://github.com/krishna-vasudev/ChitChat#demo-and-link-to-deployed-chat-application)
+* [Features](https://github.com/krishna-vasudev/ChitChat#-features)
+  * [Current features](https://github.com/krishna-vasudev/ChitChat#current-features)
+  * [Features to add](https://github.com/krishna-vasudev/ChitChat#features-to-add)
+  * [Feature request](https://github.com/krishna-vasudev/ChitChat#-feature-request)
+* [Technologies and tools used](https://github.com/krishna-vasudev/ChitChat#technologies-and-tools-used)
+* [Prerequisites(Optional)](https://github.com/krishna-vasudev/ChitChat#prerequisitesoptional)
+* [Installation and Setup(Optional)](https://github.com/krishna-vasudev/ChitChat#installation-and-setupoptional)
+* [Running in the local server(Optional)](https://github.com/krishna-vasudev/ChitChat#running-in-the-local-serveroptional)
+* [Deploying the app to heroku(Optional)](https://github.com/krishna-vasudev/ChitChat#deploying-the-app-to-herokuoptional)
+* [Bug Reporting](https://github.com/krishna-vasudev/ChitChat#-bug-reporting)
+* [License](https://github.com/krishna-vasudev/ChitChat#-license)
 
 
 ## Introduction
@@ -72,7 +72,7 @@ Check that out here <b>:</b>[https://youtu.be/-sf4CbjQKmk](https://youtu.be/-sf4
 
 ### ⭐ Feature request
 
-* Any other feature you would like to suggest ,then please [open an issue](#) for that.😊
+* Any other feature you would like to suggest ,then please [open an issue](https://github.com/krishna-vasudev/ChitChat/issues) for that.😊
 * Connect with me in [LinkedIn](www.linkedin.com/in/debraj-bhal-7597861b2). I did 💖 to hear how you feel using this app.
 ## Technologies and tools used
 * [Django-python](https://www.djangoproject.com/)
@@ -138,6 +138,6 @@ Follow the link generated after last command and Hurrah!🎉 the app is running.
 Now although it's running good in local server but to deploy to heroku we have to make few more changes. Refer to [this](https://www.youtube.com/watch?v=UkokhawLKDU&list=WL&index=39) tutorial for detailed step by step deployment to heroku.
 
 ## 🐛 Bug Reporting
-Feel free to [open an issue](#) on github if you find any bug.
+Feel free to [open an issue](https://github.com/krishna-vasudev/ChitChat/issues) on github if you find any bug.
 ## 📜 License
 This software is open source, licensed under the [MIT License](/LICENSE).
