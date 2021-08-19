@@ -140,6 +140,7 @@ EMAIL_HOST_PASSWORD = 'Replace with password of your google account'
 EMAIL_PORT = 587
 
 
+
 from django.contrib import messages
 
 MESSAGE_TAGS = {
