@@ -42,7 +42,7 @@ def send(request):
         receiver=request.POST.get("friend")
         message=request.POST.get("message")
         message=message.strip()
-        if message=="":
+        if (message == "") or (request.user.username != sender):
             return redirect('/room/'+receiver)
         if sender==receiver:
             return redirect('/')

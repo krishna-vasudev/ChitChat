@@ -18,6 +18,11 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from cryptography.fernet import Fernet
+
+#used for security purposes(encryption and decryption)
+key = Fernet.generate_key()
+fernet = Fernet(key)
 
 UserModel = get_user_model()
 from .tokens import account_activation_token
@@ -143,14 +148,17 @@ def passwordresetvalidation(request,uidb64,token):
         user = None
     if user is not None and default_token_generator.check_token(user, token):
         user.save()
-        return render(request,'passwordreset.html',{'uid':uid})
+        return render(request, 'passwordreset.html', {'uid': fernet.encrypt((str(uid)).encode())})
     else:
         messages.error(request, 'password reset link is invalid!')
         return redirect('/accounts/login')
 
 def passwordreset(request):
     if request.method =='POST':
-        uid=(int)(request.POST.get("uid"))
+        uid = str(request.POST.get("uid"))
+        uid = uid[2:len(uid)-1]
+        uid = bytes(uid, 'utf-8')
+        uid = int(fernet.decrypt(uid).decode())
         new_password=request.POST.get("new_password")
         user=User.objects.get(pk=uid)
         user.set_password(new_password)
