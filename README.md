@@ -93,7 +93,7 @@ As this is web application you can use it by simply visiting this link<b>:</b>[h
 ## Installation and Setup(Optional)
 First clone this repository to your local machine using the following command in git bash<b>:</b>
 ```
-$ git clone [URL]
+$ git clone https://github.com/krishna-vasudev/ChitChat
 ```
 Now open git bash in the root directory of the repository and enter the following command to install the required dependencies<b>:</b>
 ```
