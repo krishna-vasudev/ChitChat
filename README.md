@@ -68,7 +68,7 @@ Check that out here <b>:</b>[https://youtu.be/-sf4CbjQKmk](https://youtu.be/-sf4
 * Users can add friends by entering their unique usernames and chat with friends by just a click.
 * If the user forgets his password then he can reset it by entering his username, which results in a  password reset email.
 ### Features to add
-* I am also planning to add group chat feature to this application. I
+* I am also planning to add group chat feature to this application.
 * Also planning to add profile picture feature and advanced searching features to find friends.
 * Time zone support for the message send/receive time.
 * End to end encryption of messages for more privacy.
